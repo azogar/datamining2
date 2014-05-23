@@ -5,10 +5,10 @@ import org.apache.mahout.classifier.ConfusionMatrix;
 /**
  * Classe astratta che implementa i metodi comuni tra tutti i predittori
  * 
- * @author Armando Segatori
+ * @author Armando Segatori 
  *
  */
-public abstract class AbstractPredictor implements Predictor{
+public abstract class AbstractPredictor implements Predictor {
 
 	/**
 	 * Numero di valori che la variabile di uscita può assumere

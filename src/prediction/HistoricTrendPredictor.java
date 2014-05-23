@@ -7,7 +7,7 @@ import org.apache.mahout.math.Vector;
 
 public class HistoricTrendPredictor extends AbstractPredictor {
 
-	private static final String NAME = "Last Value Regressor";
+	private static final String NAME = "Historic Trend Predictor";
 
 	// TODO Add here some variables for the project
 
