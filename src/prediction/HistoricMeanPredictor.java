@@ -195,7 +195,7 @@ public class HistoricMeanPredictor extends AbstractPredictor {
 			 */
 			double coverage = sum / count;
 			
-			return (int) Math.floor(coverage * HistoricMeanPredictor.this.numCategories - ((coverage % (1 / HistoricMeanPredictor.this.numCategories) == 0)?1:0));
+			return (int) Math.floor(coverage * HistoricMeanPredictor.this.numCategories - ((coverage % (1d / HistoricMeanPredictor.this.numCategories) == 0)?1:0));
 		}
 	}
 	

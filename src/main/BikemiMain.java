@@ -90,14 +90,14 @@ public class BikemiMain {
 		// Cast date string to a data class
 		Date startDate = DateUtil.stringIso8601ToDate(START_DATE); 
 		// Call the job to transform the dataset
-		//BikeMiBinDriver.runJob(SPLITTER, startDate, DAYS, MILLS_INTERVAL, NUM_TARGET, INPUT_ROOT_PATH);
+		// BikeMiBinDriver.runJob(SPLITTER, startDate, DAYS, MILLS_INTERVAL, NUM_TARGET, INPUT_ROOT_PATH);
 
 		// Create the predictors list
 		List<Predictor> preidctors = new ArrayList<Predictor>();
 		preidctors.add(new MahoutPredictor(NUM_TARGET, PW)); // Add the Mahout Predictor Wrapper to the list
 		preidctors.add(new LastValuePredictor(NUM_TARGET, PW)); // Add the Last Value Predictor to the list
 		preidctors.add(new HistoricMeanPredictor(NUM_TARGET, PW)); // Add the Historic Mean Predictor to the list
-		preidctors.add(new HistoricTrendPredictor()); // Add the Historic Trend Predictor to the list
+		preidctors.add(new HistoricTrendPredictor(NUM_TARGET, PW)); // Add the Historic Trend Predictor to the list
 
 		// For each predictor, train it and print performance
 		StringBuilder sb = new StringBuilder("Performance:\n");
