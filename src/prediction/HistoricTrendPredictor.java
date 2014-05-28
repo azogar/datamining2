@@ -23,7 +23,7 @@ import org.apache.mahout.math.Vector;
 public class HistoricTrendPredictor extends AbstractPredictor {
 
 
-	private static final String NAME = "Historic Mean Value Regressor";
+	private static final String NAME = "Historic Trend Value Regressor";
 	
 	/**
 	 * Indice del vettore delle transazioni in cui è memorizzato il binId
