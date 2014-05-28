@@ -184,18 +184,13 @@ public class HistoricMeanPredictor extends AbstractPredictor {
 		}
 		
 		public int getSet() {
-			/*
-			 * se la seguente formula e' vera:
-			 * 
-			 * coverage % (1 / this.numCategories) == 0;
-			 * 
-			 * allora coverage = .25 .50 .75 o 1. in questo caso abbiamo che math.floor restituisce il numero piu alto
-			 * di uno implementando un < stretto come classificazione. per diminuire la classe e implementare un <=
-			 * togliamo 1 e restituiamo la classe precedente.
-			 */
 			double coverage = sum / count;
+			coverage *= HistoricMeanPredictor.this.numCategories;
 			
-			return (int) Math.floor(coverage * HistoricMeanPredictor.this.numCategories - ((coverage % (1d / HistoricMeanPredictor.this.numCategories) == 0)?1:0));
+			if(coverage < 1d) return 0;
+			else if (coverage < 2d) return 1;
+			else if (coverage < 3d) return 2;
+			else return 3;
 		}
 	}
 	
