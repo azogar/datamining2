@@ -66,13 +66,10 @@ public class HistoricTrendPredictor extends AbstractPredictor {
 		List<String> symbols = getSymbols();
 		cm = new ConfusionMatrix(symbols, "unknown");
 		
-		int count1=0, count2=0;
-		
 		// For each bike station
 		for (Entry<Integer, List<Vector>> entry : dataTest.entrySet()){
 			List<Vector> currentVectorId = entry.getValue(); // get the transactions to classify
 			for (int k = 0; k < currentVectorId.size()-pw; k++){ // for each transaction
-			    count1++;
 				Vector vectorK = currentVectorId.get(k); // get the vector of the transaction
 				int classifiedLabel = classify(vectorK); // cassify the transaction
 				if (classifiedLabel == -1) // if -1 something classification is not ok
@@ -82,10 +79,8 @@ public class HistoricTrendPredictor extends AbstractPredictor {
 				Vector vectorKPw = getVectorKPw(k, pw, (int)vectorK.get(BIN_ID_INDEX_TRANSACTION), currentVectorId); 
 				int correctLabel = (int)vectorKPw.get(vectorKPw.size()-1); // get the right value of the outcome
 				cm.addInstance("" + correctLabel, "" + classifiedLabel); // update confusion matrix
-				count2++;
 			}
 		}
-		System.out.println(count1 + ", " + count2);
 	}
 
 	/**
