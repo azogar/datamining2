@@ -90,7 +90,7 @@ public class BikemiMain {
 		// Cast date string to a data class
 		Date startDate = DateUtil.stringIso8601ToDate(START_DATE); 
 		// Call the job to transform the dataset
-		//BikeMiBinDriver.runJob(SPLITTER, startDate, DAYS, MILLS_INTERVAL, NUM_TARGET, INPUT_ROOT_PATH);
+		BikeMiBinDriver.runJob(SPLITTER, startDate, DAYS, MILLS_INTERVAL, NUM_TARGET, INPUT_ROOT_PATH);
 
 		// Create the predictors list
 		List<Predictor> preidctors = new ArrayList<Predictor>();

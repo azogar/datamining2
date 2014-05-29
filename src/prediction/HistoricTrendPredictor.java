@@ -238,7 +238,7 @@ public class HistoricTrendPredictor extends AbstractPredictor {
 				vectorBikeIdList.add(getVectorFromDataTransaction(transaction));
 				dataTest.put(bikeId, vectorBikeIdList); // add transaction to the test set
 			} else {
-				int binId = Integer.parseInt(values[1]); // get the id of the bike station
+				int binId = Integer.parseInt(values[1]); // get the id of the temporal bin
 				if (dataMean.get(bikeId) == null)
 					dataMean.put(bikeId, new HashMap<Integer, Record>());
 		
