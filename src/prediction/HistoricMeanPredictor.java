@@ -187,10 +187,9 @@ public class HistoricMeanPredictor extends AbstractPredictor {
 			double coverage = sum / count;
 			coverage *= HistoricMeanPredictor.this.numCategories;
 			
-			if(coverage < 1d) return 0;
-			else if (coverage < 2d) return 1;
-			else if (coverage < 3d) return 2;
-			else return 3;
+			for(int i = 0; i < HistoricMeanPredictor.this.numCategories; i++)
+			    if(coverage < 1d * i + 1d) return i;
+			return HistoricMeanPredictor.this.numCategories - 1;
 		}
 	}
 	

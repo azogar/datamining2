@@ -157,10 +157,9 @@ public class HistoricTrendPredictor extends AbstractPredictor {
 		double coverage = Math.max(0d, Math.min(1d, kpMean-kMean + now));
 		coverage *= this.numCategories;
 		
-		if(coverage < 1d) return 0;
-		else if (coverage < 2d) return 1;
-		else if (coverage < 3d) return 2;
-		else return 3;
+		for(int i = 0; i < this.numCategories; i++)
+		    if(coverage < 1d * i + 1d) return i;
+		return this.numCategories - 1;
 	}
 	
 	/**
